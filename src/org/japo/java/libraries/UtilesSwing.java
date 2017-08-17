@@ -191,13 +191,17 @@ public class UtilesSwing {
             cbbActual.addActionListener(al);
         }
     }
-    
+
     // Asignar Favicon Ventana
     public static void establecerFavicon(JFrame ventana, String rutaFavicon) {
-        // Ruta Favicon > URL Favicon
-        URL urlICN = ClassLoader.getSystemResource(rutaFavicon);
+        try {
+            // Ruta Favicon > URL Favicon
+            URL urlICN = ClassLoader.getSystemResource(rutaFavicon);
 
-        // URL Favicon > Ventana Favicon
-        ventana.setIconImage(new ImageIcon(urlICN).getImage());
+            // URL Favicon > Ventana Favicon
+            ventana.setIconImage(new ImageIcon(urlICN).getImage());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
