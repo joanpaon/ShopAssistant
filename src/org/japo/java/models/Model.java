@@ -16,7 +16,6 @@
 package org.japo.java.models;
 
 import java.io.Serializable;
-import org.japo.java.libraries.UtilesFecha;
 import org.japo.java.libraries.UtilesValidacion;
 
 /**
@@ -43,7 +42,7 @@ public class Model implements Serializable {
     // Valores por defecto
     public static final String DEF_LINK = "http://user.domain.com";
     public static final String DEF_USER = "Invitado";
-    public static final String DEF_PASS = "123456";
+    public static final String DEF_PASS = "12345678";
     public static final String DEF_CODE = "PROMO";
 
     // Campos de la entidad
@@ -62,7 +61,7 @@ public class Model implements Serializable {
 
     // Constructor Parametrizado
     public Model(String link, String user, String pass, String code) {
-        // Enlace
+        // Enlace Página Web
         if (UtilesValidacion.validarDato(link, ER_LINK)) {
             this.link = link;
         } else {
@@ -83,8 +82,8 @@ public class Model implements Serializable {
             this.pass = DEF_PASS;
         }
 
-        // Código
-        if (UtilesFecha.validarFecha(code)) {
+        // Código Promoción
+        if (UtilesValidacion.validarDato(code, ER_CODE)) {
             this.code = code;
         } else {
             this.code = DEF_CODE;

@@ -179,15 +179,15 @@ public class Controller {
     // Lanzar Navegador
     public void lanzarNavegador(String url) {
         // Acceso Lanzamiento Aplicaciones Nativas
-        Desktop desktop = java.awt.Desktop.getDesktop();
+        Desktop desktop = Desktop.getDesktop();
 
         // Referencia URI a lanzar
         URI uri = null;
 
         // URI > Navegador
         try {
-            // Analiza la URL
-            if (url.trim().length() == 0) {
+            // Analizar URL
+            if (url == null || url.trim().length() == 0) {
                 uri = new URI("https://www.google.com");
             } else if (UtilesValidacion.validarDato(url, Model.ER_LINK)) {
                 uri = new URI(url);
@@ -195,10 +195,10 @@ public class Controller {
                 uri = new URI("https://www.google.com/search?q=" + url);
             }
 
-            // Lanza URL
+            // Lanzar URI
             desktop.browse(uri);
-        } catch (IOException | URISyntaxException ex) {
-            JOptionPane.showMessageDialog(view, "Error en el Enlace");
+        } catch (URISyntaxException | IOException ex) {
+            JOptionPane.showMessageDialog(view, "Error en el enlace");
         }
     }
 
@@ -206,9 +206,11 @@ public class Controller {
     public void procesarPassword(ActionEvent evt) {
         if (view.cbxPass.isSelected()) {
             view.txfPass.setText(model.getPass());
+            view.txfPass.setEnabled(true);
         } else if (UtilesValidacion.validarDato(view.txfPass.getText(), Model.ER_PASS)) {
             model.setPass(view.txfPass.getText());
-            view.txfPass.setText("•••••••••••••••••");
+            view.txfPass.setText("•••••••••••••••");
+            view.txfPass.setEnabled(false);
         } else {
             view.cbxPass.setSelected(true);
         }
