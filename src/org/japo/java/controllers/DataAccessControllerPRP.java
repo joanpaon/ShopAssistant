@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright 2017 José A. Pacheco Ondoño - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,7 +55,7 @@ public class DataAccessControllerPRP implements IDataAccessController {
     }
 
     // Propiedades > Modelo
-    void convertirPropiedadesModelo(Properties prp, Model model) {
+    void convertirPropiedadesModelo(Properties prp, Model model) throws Exception {
 
     }
 }

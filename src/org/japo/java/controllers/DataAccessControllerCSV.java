@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright 2017 José A. Pacheco Ondoño - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -54,7 +54,7 @@ public class DataAccessControllerCSV implements IDataAccessController {
     }
 
     // Lista Items > Modelo
-    public void convertirArrayModelo(String[] items, Model model) {
+    public void convertirArrayModelo(String[] items, Model model) throws Exception {
 
     }
 }

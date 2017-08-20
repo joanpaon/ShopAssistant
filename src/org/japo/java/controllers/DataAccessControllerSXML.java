@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright 2017 José A. Pacheco Ondoño - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +20,7 @@ import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import org.japo.java.interfaces.IDataAccessController;
+import org.japo.java.libraries.UtilesValidacion;
 import org.japo.java.models.Model;
 
 /**
@@ -50,7 +51,33 @@ public class DataAccessControllerSXML implements IDataAccessController {
     }
 
     // Modelo > Modelo
-    public void convertirModeloModelo(Model modeloIni, Model modeloFin) {
+    public void convertirModeloModelo(Model modeloIni, Model modeloFin) throws Exception {
+        // Enlace
+        if (UtilesValidacion.validarDato(modeloIni.getLink(), Model.ER_LINK)) {
+            modeloFin.setLink(modeloIni.getLink());
+        } else {
+            throw new Exception("Datos corruptos");
+        }
+        
+        // Usuario
+        if (UtilesValidacion.validarDato(modeloIni.getUser(), Model.ER_USER)) {
+            modeloFin.setUser(modeloIni.getUser());
+        } else {
+            throw new Exception("Datos corruptos");
+        }
+        
+        // Contraseña
+        if (UtilesValidacion.validarDato(modeloIni.getPass(), Model.ER_PASS)) {
+            modeloFin.setPass(modeloIni.getPass());
+        } else {
+            throw new Exception("Datos corruptos");
+        }
 
+        // Código Promoción
+        if (UtilesValidacion.validarDato(modeloIni.getCode(), Model.ER_CODE)) {
+            modeloFin.setPass(modeloIni.getPass());
+        } else {
+            throw new Exception("Datos corruptos");
+        }
     }
 }
