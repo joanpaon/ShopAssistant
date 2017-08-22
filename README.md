@@ -3,8 +3,8 @@
 Project .....: ShopAssistant
 Summary .....: MVC Java Desktop Application with Validation #01
 Creation ....: 16/08/2017
-Modification : 20/08/2017
-Version .....: 0.1.3
+Modification : 22/08/2017
+Version .....: 0.1.4
 Author ......: José A. Pacheco Ondoño - joanpaon@gmail.com
 Platform ....: Java 8
 IDE .........: NetBeans 8.2

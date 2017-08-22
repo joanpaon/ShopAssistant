@@ -429,7 +429,7 @@ public class View extends javax.swing.JFrame {
 //        control.sincronizarModeloVista(model, this);
 
         // Enfocar Control Inicial
-        btnImportar.requestFocus();
+        txfLink.requestFocus();
 
         // Otras inicializaciones
     }
